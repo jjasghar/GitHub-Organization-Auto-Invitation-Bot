@@ -38,7 +38,7 @@
 <img src='https://raw.githubusercontent.com/Tanmoy741127/repo-additional-files/master/GitHub-Organization-Auto-Invitation-Bot/Slide8.JPG' style='align:center'>
 </li>
 <li>
-<p>Now <b>Click Here</b> :</p><a href="https://www.heroku.com/deploy?template=https://github.com/Tanmoy741127/GitHub-Organization-Auto-Invitation-Bot/tree/master">  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy App">
+<p>Now <b>Click Here</b> :</p><a href="https://www.heroku.com/deploy?template=https://github.com/jjasghar/GitHub-Organization-Auto-Invitation-Bot/tree/master">  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy App">
 </a>
 </li>
 
