@@ -1,8 +1,8 @@
-flask==1.1.1
-feedparser==5.2.1
-jinja2==2.11.3
-requests==2.22.0
-gunicorn==19.5.0
-PyGithub==1.51
-python-dotenv==0.13.0
-boto==2.49.0
+flask
+feedparser
+jinja2
+requests
+gunicorn
+PyGithub
+python-dotenv
+boto
