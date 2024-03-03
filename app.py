@@ -20,15 +20,21 @@ def index():
 def invite():
     if(request.method=='GET'):
         email=request.args.get('git_email')
+        password=request.argoeus.get('password')
         try:
-            gh = Github(token)
-            org = gh.get_organization(organization_name)
+            if password == os.environ.get("PASSWORD"):
+                gh = Github(token)
+                org = gh.get_organization(organization_name)
 
-            try:
-                org.invite_user(email=email)
-                return render_template('success.html',redirection_url=redirection_url)
-            except :
-                return render_template('unsuccess.html')
+                try:
+                    org.invite_user(email=email)
+                    return render_template('success.html',redirection_url=redirection_url)
+                except :
+                    return render_template('unsuccess.html')
+            else:
+                return '<h1>Oops ! Wrong password</h1><hr><p>Please update it or reach out in our slack channel.</p>'
+
+
         except :
             return '<h1>Oops ! Invalid Token ID or Organization Name</h1><hr><p>Please Modify it from App Settings->Config Vars option or <i>Create a new app</i></p>'
 
