@@ -18,7 +18,7 @@ def main():
             ghuser = gh.get_user(name.strip())
 
             try:
-                org.invite_user(ghuser)
+                org.invite_user(ghuser, teams=[org.get_team_by_slug("Labrador-Lovers")])
                 print(f"successfully invited {name}")
                 total = total + 1
             except:
