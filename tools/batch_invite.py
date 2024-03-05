@@ -16,16 +16,21 @@ def main():
             gh = Github(token)
             org = gh.get_organization(organization_name)
             ghuser = gh.get_user(name.strip())
+            ghlablovers = org.get_team_by_slug("Labrador-Lovers")
 
-            try:
-                org.invite_user(ghuser, teams=[org.get_team_by_slug("Labrador-Lovers")])
-                print(f"successfully invited {name}")
-                total = total + 1
-            except:
-                print(f"Something didn't work for {name}")
+            while total < 500:
+                try:
+                    org.invite_user(ghuser, teams=[ghlablovers])
+                    print(f"{name} was successfully invited")
+                    total = total + 1
+                    if total == 500:
+                        break
+                except Exception as e:
+                    print(f"{name.strip()} failed: {e}")
+
 
         except:
-            print(f"Error happened with GitHub intital connection")
+            print(f"Error happened with GitHub initial connection")
             exit(1)
 
     print(f"Successfully invited a total of: {total} people to the org")
