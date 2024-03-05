@@ -18,15 +18,12 @@ def main():
             ghuser = gh.get_user(name.strip())
             ghlablovers = org.get_team_by_slug("Labrador-Lovers")
 
-            while total < 500:
-                try:
-                    org.invite_user(ghuser, teams=[ghlablovers])
-                    print(f"{name} was successfully invited")
-                    total = total + 1
-                    if total == 500:
-                        break
-                except Exception as e:
-                    print(f"{name.strip()} failed: {e}")
+            try:
+                org.invite_user(ghuser, teams=[ghlablovers])
+                print(f"{name} was successfully invited")
+                total = total + 1
+            except Exception as e:
+                print(f"{name.strip()} failed: {e}")
 
 
         except:
