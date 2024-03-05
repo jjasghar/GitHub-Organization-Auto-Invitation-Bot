@@ -20,14 +20,15 @@ def main():
 
             try:
                 org.invite_user(ghuser, teams=[ghlablovers])
-                print(f"{name} was successfully invited")
+                print(f"{name.strip()} ✅")
                 total = total + 1
             except Exception as e:
-                print(f"{name.strip()} failed: {e}")
+                print(f"❌❌❌ -- {name.strip()} failed: {e}")
 
 
-        except:
-            print(f"Error happened with GitHub initial connection")
+        except Exception as e:
+            print(f"Error happened with GitHub initial connection, last name was {name}")
+            print(f"{e}")
             exit(1)
 
     print(f"Successfully invited a total of: {total} people to the org")
