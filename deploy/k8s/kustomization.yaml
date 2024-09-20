@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+  - deployment.yaml
+  - route.yaml
+  - service.yaml
+
+secretGenerator:
+- name: inviter-config
+  envs:
+  - .env
+
+labels:
+  - includeSelectors: true
+    pairs:
+      app.kubernetes.io/component: instructlab-inviter
+      app.kubernetes.io/instance: instructlab-inviter
+      app.kubernetes.io/name: instructlab-inviter

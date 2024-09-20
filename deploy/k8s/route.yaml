@@ -1,0 +1,26 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: instructlab-inviter
+  namespace: instructlab-public-inviter
+  labels:
+    app: instructlab-inviter
+    app.kubernetes.io/component: instructlab-inviter
+    app.kubernetes.io/instance: instructlab-inviter
+    app.kubernetes.io/name: instructlab-inviter
+    app.kubernetes.io/part-of: instructlab-inviter-app
+    app.openshift.io/runtime-version: v3
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  host: instructlab-inviter-instructlab-public-inviter.qa-ui-instructlab-ai-0e3e0ef4c9c6d831e8aa6fe01f33bfc4-0000.us-south.containers.appdomain.cloud
+  to:
+    kind: Service
+    name: instructlab-inviter
+    weight: 100
+  port:
+    targetPort: 8000-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
